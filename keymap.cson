@@ -1,0 +1,159 @@
+# Your keymap
+#
+# Atom keymaps work similarly to style sheets. Just as style sheets use
+# selectors to apply styles to elements, Atom keymaps use selectors to associate
+# keystrokes with events in specific contexts. Unlike style sheets however,
+# each selector can only be declared once.
+#
+# You can create a new keybinding in this file by typing "key" and then hitting
+# tab.
+#
+# Here's an example taken from Atom's built-in keymap:
+#
+# 'atom-text-editor':
+#   'enter': 'editor:newline'
+#
+# 'atom-workspace':
+#   'ctrl-shift-p': 'core:move-up'
+#   'ctrl-p': 'core:move-down'
+#
+# You can find more information about keymaps in these guides:
+# * http://flight-manual.atom.io/using-atom/sections/basic-customization/#customizing-keybindings
+# * http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/
+#
+# If you're having trouble with your keybindings not working, try the
+# Keybinding Resolver: `Cmd+.` on macOS and `Ctrl+.` on other platforms. See the
+# Debugging Guide for more information:
+# * http://flight-manual.atom.io/hacking-atom/sections/debugging/#check-the-keybindings
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#configuring-with-cson
+
+'atom-workspace':
+    'ctrl-:': 'platformio-ide-terminal:toggle'
+    'ctrl-0': 'tree-view:toggle-focus'
+    'ctrl-h': 'core:backspace'
+    'ctrl-n': 'core:move-down'
+    'ctrl-p': 'core:move-up'
+    'ctrl-y': 'core:paste'
+    # C-c prefix commands
+    'ctrl-c ctrl-f': 'tree-view:toggle-focus'
+    # C-x prefix commands
+    'ctrl-x ctrl-1': 'user:test-command'
+    # Disable quit command
+    'ctrl-x ctrl-c': 'unset!'
+    # Cancel "C-k" prefix key
+    'ctrl-k t down': 'unset!'
+    'ctrl-k t left': 'unset!'
+    'ctrl-k ctrl-0': 'unset!'
+    'ctrl-k ctrl-1': 'unset!'
+    'ctrl-k ctrl-2': 'unset!'
+    'ctrl-k ctrl-3': 'unset!'
+    'ctrl-k ctrl-4': 'unset!'
+    'ctrl-k ctrl-5': 'unset!'
+    'ctrl-k ctrl-6': 'unset!'
+    'ctrl-k ctrl-7': 'unset!'
+    'ctrl-k ctrl-8': 'unset!'
+    'ctrl-k ctrl-9': 'unset!'
+    'ctrl-k ctrl-alt-w': 'unset!'
+    'ctrl-k ctrl-b': 'unset!'
+    'ctrl-k ctrl-d': 'unset!'
+    'ctrl-k ctrl-down': 'unset!'
+    'ctrl-k ctrl-k': 'unset!'
+    'ctrl-k ctrl-l': 'unset!'
+    'ctrl-k ctrl-left': 'unset!'
+    'ctrl-k ctrl-n': 'unset!'
+    'ctrl-k ctrl-p': 'unset!'
+    'ctrl-k ctrl-right': 'unset!'
+    'ctrl-k ctrl-u': 'unset!'
+    'ctrl-k ctrl-up': 'unset!'
+    'ctrl-k ctrl-w': 'unset!'
+    'ctrl-k down': 'unset!'
+    'ctrl-k h': 'unset!'
+    'ctrl-k k': 'unset!'
+    'ctrl-k l': 'unset!'
+    'ctrl-k left': 'unset!'
+    'ctrl-k right': 'unset!'
+    'ctrl-k j': 'unset!'
+    'ctrl-k up': 'unset!'
+    # Cancel "M-g" prefix key
+    'alt-g': 'go-to-line:toggle'
+    'alt-g =': 'unset!'
+    'alt-g alt-g': 'unset!'
+    'alt-g b': 'unset!'
+    'alt-g c': 'unset!'
+    'alt-g d': 'unset!'
+    'alt-g down': 'unset!'
+    'alt-g enter': 'unset!'
+    'alt-g f': 'unset!'
+    'alt-g g': 'unset!'
+    'alt-g h': 'unset!'
+    'alt-g i': 'unset!'
+    'alt-g o': 'unset!'
+    'alt-g p': 'unset!'
+    'alt-g r': 'unset!'
+    'alt-g shift-F': 'unset!'
+    'alt-g shift-P': 'unset!'
+    'alt-g up': 'unset!'
+
+'atom-workspace atom-text-editor':
+    'ctrl-:': 'platformio-ide-terminal:toggle'
+    'ctrl-1': 'editor:select-word'
+    'ctrl-\\': 'core:redo'
+    'ctrl-s': 'incremental-search:forward'
+    'ctrl-r': 'incremental-search:backward'
+    'ctrl-alt-/': 'editor:auto-indent'
+    'alt-shift-5': 'find-and-replace:show'
+    # C-x prefix commands
+    'ctrl-x 5': 'pane:split-right'
+    # Disable quit command
+    'ctrl-x ctrl-c': 'unset!'
+    # C-u prefix commands
+    'ctrl-u -': 'user:insert-horizontal-bar'
+    'ctrl-u =': 'user:insert-double-horizontal-bar'
+
+'atom-workspace atom-text-editor:not([mini])':
+    'ctrl-i': 'editor:indent'
+    'ctrl-/': 'core:undo'
+    'ctrl-\\': 'core:redo'
+    'ctrl-shift-i': 'window:toggle-dev-tools'
+
+'atom-text-editor.autocomplete-active':
+    'escape': 'autocomplete-plus:cancel'
+    'ctrl-g': 'autocomplete-plus:cancel'
+
+## PHP Mode
+'atom-workspace atom-text-editor[data-grammar~="php"]':
+    'f1': 'user:open-php-manual'
+    'f2': 'user:test-command'
+
+## Tree View
+'.tree-view':
+    'a': 'unset!'
+    'd': 'unset!'
+    'h': 'unset!'
+    'i': 'unset!'
+    'j': 'unset!'
+    'k': 'unset!'
+    'l': 'unset!'
+    'm': 'unset!'
+    'q': 'unset!'
+    'alt-v': 'core:page-up'
+    'ctrl-h': 'tree-view:collapse-directory'
+    'ctrl-m': 'tree-view:open-selected-entry'
+    'ctrl-n': 'core:move-down'
+    'ctrl-p': 'core:move-up'
+    'ctrl-v': 'core:page-down'
+    'shift-c': 'tree-view:duplicate'
+    'shift-d': 'tree-view:remove'
+    'shift-e': 'tree-view:recursive-expand-directory'
+    'shift-r': 'tree-view:rename'
+    'shift-q': 'tree-view:toggle'
+
+## Incremental Search
+'.workspace .isearch .editor':
+    'ctrl-s': 'incremental-search:forward'
+    'ctrl-r': 'incremental-search:backward'
+    'ctrl-w' : 'incremental-search:slurp'
