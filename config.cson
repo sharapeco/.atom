@@ -4,31 +4,11 @@
     killWholeLine: true
     yankFromClipboard: true
   core:
-    autoHideMenuBar: true
-    packagesWithKeymapsDisabled: [
-      "autocomplete-plus"
-    ]
     telemetryConsent: "no"
-    themes: [
-      "one-dark-ui"
-      "21f-dark-syntax"
-    ]
   editor:
-    fontSize: 14
     preferredLineLength: 800
-    softTabs: false
-    tabLength: 8
+    tabLength: 4
   "exception-reporting":
-    userId: "6de31ac6-c5c1-4d95-9d90-bf36fc55c783"
-  "platformio-ide-terminal":
-    core:
-      shell: "C:\\Windows\\System32\\cmd.exe"
-      workingDirectory: "Active File"
-    style:
-      animationSpeed: 5
-      defaultPanelHeight: "150px"
-      fontSize: "15px"
-    toggles:
-      autoClose: true
+    userId: "5fef63e1-f9f5-4201-b07d-bbad03e46b76"
   welcome:
     showOnStartup: false

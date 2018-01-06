@@ -7,3 +7,4 @@ storage
 .npm
 packages
 siteinit-cache
+config.cson

@@ -104,10 +104,6 @@
     'ctrl-\\': 'core:redo'
     'ctrl-s': 'incremental-search:forward'
     'ctrl-r': 'incremental-search:backward'
-    'ctrl-alt-/': 'editor:auto-indent'
-    'alt-shift-5': 'find-and-replace:show'
-    # C-x prefix commands
-    'ctrl-x 5': 'pane:split-right'
     # Disable quit command
     'ctrl-x ctrl-c': 'unset!'
     # C-u prefix commands
@@ -118,16 +114,37 @@
     'ctrl-i': 'editor:indent'
     'ctrl-/': 'core:undo'
     'ctrl-\\': 'core:redo'
+    'ctrl-_': 'core:redo'
+    'ctrl-alt-/': 'editor:auto-indent'
     'ctrl-shift-i': 'window:toggle-dev-tools'
+    'alt-shift-5': 'find-and-replace:show'
+    # C-x prefix commands
+    'ctrl-x 5': 'pane:split-right'
+    'ctrl-x #': 'user:filter-buffer'
 
 'atom-text-editor.autocomplete-active':
     'escape': 'autocomplete-plus:cancel'
     'ctrl-g': 'autocomplete-plus:cancel'
 
+## CSS Mode
+'atom-workspace atom-text-editor[data-grammar~="css"]':
+    'f1': 'user:open-mdn-manual'
+    'ctrl-x ctrl-h': 'user:open-mdn-manual'
+
+## LESS Mode
+'atom-workspace atom-text-editor[data-grammar~="less"]':
+    'f1': 'user:open-mdn-manual'
+    'ctrl-x ctrl-h': 'user:open-mdn-manual'
+
+## JavaScript Mode
+'atom-workspace atom-text-editor[data-grammar~="js"]':
+    'f1': 'user:open-mdn-manual'
+    'ctrl-x ctrl-h': 'user:open-mdn-manual'
+
 ## PHP Mode
 'atom-workspace atom-text-editor[data-grammar~="php"]':
     'f1': 'user:open-php-manual'
-    'f2': 'user:test-command'
+    'ctrl-x ctrl-h': 'user:open-php-manual'
 
 ## Tree View
 '.tree-view':
