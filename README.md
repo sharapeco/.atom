@@ -1,4 +1,4 @@
-# sharapeco-atom-conf
+# .atom
 My Atom editor configuration files
 
 ## Installed packages
