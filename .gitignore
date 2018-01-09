@@ -8,3 +8,4 @@ storage
 packages
 siteinit-cache
 config.cson
+projects.cson

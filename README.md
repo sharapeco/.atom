@@ -7,3 +7,4 @@ My Atom editor configuration files
 * editorconfig (sindresorhus)
 * platformio-ide-terminal (platformio)
 * incremental-search (gangstead)
+* project-manager (danielbrodin)
