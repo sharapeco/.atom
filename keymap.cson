@@ -122,6 +122,7 @@
     # C-x prefix commands
     'ctrl-x 5': 'pane:split-right'
     'ctrl-x #': 'user:filter-buffer'
+    'ctrl-x |': 'user:filter-region'
 
 'atom-text-editor.autocomplete-active':
     'escape': 'autocomplete-plus:cancel'

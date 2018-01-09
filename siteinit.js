@@ -76,6 +76,35 @@ function init() {
 		dialog.attach();
 	});
 
+	user.defun("atom-text-editor", "user:filter-region", () => {
+		let editor = atom.workspace.getActiveTextEditor();
+		if (!editor) {
+			return;
+		}
+		let selections = editor.getSelections();
+		var completeCount = 0;
+
+		let dialog = new MiniBuffer({
+			historyName: "filter-buffer",
+			labelText: "Filter region:",
+			callback: (command) => {
+				selections.forEach((selection) => {
+					filterByCommand(command, selection.getText(), (filtered) => {
+						selection.insertText(filtered);
+						completeCount++;
+						if (completeCount >= selections.length) {
+							editor.element.focus();
+							editor.scrollToCursorPosition();
+						}
+					}, (code) => {
+						atom.notifications.addFatalError("Command \"" + command + "\" exited with code " + code);
+					});
+				})
+			}
+		});
+		dialog.attach();
+	});
+
 	function filterByCommand(command, content, callback, errorCallback) {
 		var args = parseCommandArguments(command);
 		let cmd = args.shift();
