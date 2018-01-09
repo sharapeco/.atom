@@ -98,7 +98,7 @@
     'alt-g shift-P': 'unset!'
     'alt-g up': 'unset!'
 
-'atom-workspace atom-text-editor':
+'atom-text-editor':
     'ctrl-:': 'platformio-ide-terminal:toggle'
     'ctrl-1': 'editor:select-word'
     'ctrl-\\': 'core:redo'
@@ -110,13 +110,14 @@
     'ctrl-u -': 'user:insert-horizontal-bar'
     'ctrl-u =': 'user:insert-double-horizontal-bar'
 
-'atom-workspace atom-text-editor:not([mini])':
+'atom-text-editor:not([mini])':
     'ctrl-i': 'editor:indent'
     'ctrl-/': 'core:undo'
     'ctrl-\\': 'core:redo'
     'ctrl-_': 'core:redo'
     'ctrl-alt-/': 'editor:auto-indent'
     'ctrl-shift-i': 'window:toggle-dev-tools'
+    'alt-y': 'clipboard-plus:toggle'
     'alt-shift-5': 'find-and-replace:show'
     # C-x prefix commands
     'ctrl-x 5': 'pane:split-right'
