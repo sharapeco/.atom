@@ -6,6 +6,7 @@ My Atom editor configuration files
 * atomic-emacs (avendael)
 * clipboard-plus (aki77)
 * editorconfig (sindresorhus)
+* filter-text (sharapeco)
 * incremental-search (gangstead)
 * platformio-ide-terminal (platformio)
 * project-manager (danielbrodin)
