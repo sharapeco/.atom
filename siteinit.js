@@ -5,6 +5,18 @@ function init() {
 		console.log("TEST");
 	});
 
+	user.defun("atom-workspace", "user:open-your-siteinit.js", function() {
+		let path = require("path");
+		let file = path.join(process.env.HOME, '.atom/siteinit.js');
+		atom.workspace.open(file);
+	});
+
+	user.defun("atom-workspace", "user:open-your-project-file", function() {
+		let path = require("path");
+		let file = path.join(process.env.HOME, '.atom/projects.cson');
+		atom.workspace.open(file);
+	});
+
 	user.defun("atom-text-editor", "user:insert-horizontal-bar", function() {
 		let editor = atom.workspace.getActiveTextEditor();
 		if (!editor) {
