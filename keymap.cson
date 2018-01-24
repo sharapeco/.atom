@@ -42,6 +42,7 @@
     'ctrl-c ctrl-f': 'tree-view:toggle-focus'
     # C-x prefix commands
     'ctrl-x ctrl-1': 'user:test-command'
+    'ctrl-x ctrl-p': 'user:open-your-project-file'
     # Disable quit command
     'ctrl-x ctrl-c': 'unset!'
     # Cancel "C-k" prefix key
