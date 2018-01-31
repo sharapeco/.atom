@@ -1,22 +1,5 @@
 # Your keymap
 #
-# Atom keymaps work similarly to style sheets. Just as style sheets use
-# selectors to apply styles to elements, Atom keymaps use selectors to associate
-# keystrokes with events in specific contexts. Unlike style sheets however,
-# each selector can only be declared once.
-#
-# You can create a new keybinding in this file by typing "key" and then hitting
-# tab.
-#
-# Here's an example taken from Atom's built-in keymap:
-#
-# 'atom-text-editor':
-#   'enter': 'editor:newline'
-#
-# 'atom-workspace':
-#   'ctrl-shift-p': 'core:move-up'
-#   'ctrl-p': 'core:move-down'
-#
 # You can find more information about keymaps in these guides:
 # * http://flight-manual.atom.io/using-atom/sections/basic-customization/#customizing-keybindings
 # * http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/
@@ -25,11 +8,6 @@
 # Keybinding Resolver: `Cmd+.` on macOS and `Ctrl+.` on other platforms. See the
 # Debugging Guide for more information:
 # * http://flight-manual.atom.io/hacking-atom/sections/debugging/#check-the-keybindings
-#
-# This file uses CoffeeScript Object Notation (CSON).
-# If you are unfamiliar with CSON, you can read more about it in the
-# Atom Flight Manual:
-# http://flight-manual.atom.io/using-atom/sections/basic-customization/#configuring-with-cson
 
 'atom-workspace':
     'ctrl-:': 'platformio-ide-terminal:toggle'
@@ -39,9 +17,7 @@
     'ctrl-p': 'core:move-up'
     'ctrl-y': 'core:paste'
     # C-c prefix commands
-    'ctrl-c ctrl-f': 'tree-view:toggle-focus'
     # C-x prefix commands
-    'ctrl-x ctrl-1': 'user:test-command'
     'ctrl-x ctrl-p': 'user:open-your-project-file'
     # Disable quit command
     'ctrl-x ctrl-c': 'unset!'
@@ -79,25 +55,6 @@
     'ctrl-k right': 'unset!'
     'ctrl-k j': 'unset!'
     'ctrl-k up': 'unset!'
-    # Cancel "M-g" prefix key
-    'alt-g': 'go-to-line:toggle'
-    'alt-g =': 'unset!'
-    'alt-g alt-g': 'unset!'
-    'alt-g b': 'unset!'
-    'alt-g c': 'unset!'
-    'alt-g d': 'unset!'
-    'alt-g down': 'unset!'
-    'alt-g enter': 'unset!'
-    'alt-g f': 'unset!'
-    'alt-g g': 'unset!'
-    'alt-g h': 'unset!'
-    'alt-g i': 'unset!'
-    'alt-g o': 'unset!'
-    'alt-g p': 'unset!'
-    'alt-g r': 'unset!'
-    'alt-g shift-F': 'unset!'
-    'alt-g shift-P': 'unset!'
-    'alt-g up': 'unset!'
 
 'atom-text-editor':
     'ctrl-:': 'platformio-ide-terminal:toggle'
@@ -120,6 +77,8 @@
     'ctrl-shift-i': 'window:toggle-dev-tools'
     'alt-y': 'clipboard-plus:toggle'
     'alt-shift-5': 'find-and-replace:show'
+    # C-c prefix commands
+    'ctrl-c ctrl-f': 'atom-commander:toggle-focus'
     # C-x prefix commands
     'ctrl-x 5': 'pane:split-right'
 
@@ -175,3 +134,7 @@
     'ctrl-s': 'incremental-search:forward'
     'ctrl-r': 'incremental-search:backward'
     'ctrl-w' : 'incremental-search:slurp'
+
+## Atom Commander
+'.atom-commander':
+    'shift-q': 'atom-commander:toggle-visible'

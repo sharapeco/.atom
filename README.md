@@ -3,6 +3,7 @@ My Atom editor configuration files
 
 ## Installed packages
 * advanced-open-file (Osmose)
+* atom-commander (morassman)
 * atomic-emacs (avendael)
 * clipboard-plus (aki77)
 * editorconfig (sindresorhus)
