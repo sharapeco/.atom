@@ -6,6 +6,8 @@ storage
 .node-gyp
 .npm
 packages
-siteinit-cache
+/siteinit-cache
 config.cson
 projects.cson
+/package-lock.json
+/node_modules

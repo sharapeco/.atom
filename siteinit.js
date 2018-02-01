@@ -2,13 +2,33 @@ function init() {
 	console.log("siteinit.js loaded.");
 
 	user.defun("atom-text-editor", "user:test-command", function() {
-		const editors = atom.workspace.getTextEditors();
-		const infos = editors.map((e) => e.getLongTitle()).join("\n");
-		editors.forEach((e) => {
-			if (/table[.]sql/.test(e.getTitle())) {
-				e.destroy();
-			}
+		const SelectListView = require("atom-select-list");
+		const listView = new SelectListView({
+			items: atom.workspace.getTextEditors().map((editor) => {
+				return {
+					editor: editor,
+					mark: null
+				};
+			}),
+			elementForItem: (item) => {
+				const li = document.createElement("li");
+				const pl = document.createElement("div");
+				pl.classList.add("primary-line", "no-icon");
+				li.appendChild(pl);
+				const sl = document.createElement("div");
+				sl.classList.add("secondary-line", "no-icon");
+				li.appendChild(sl);
+				return li;
+			},
+			didConfirmSelection: (item) => {
+				console.log("confirmed", item.editor.getName());
+			},
+			didCancelSelection: () => {
+				console.log("cancelled");
+			},
 		});
+		atom.workspaceView.append(listView)
+		// editor.destroy();
 		// console.log(infos);
 	});
 
