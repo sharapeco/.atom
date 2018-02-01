@@ -2,7 +2,14 @@ function init() {
 	console.log("siteinit.js loaded.");
 
 	user.defun("atom-text-editor", "user:test-command", function() {
-		console.log("TEST");
+		const editors = atom.workspace.getTextEditors();
+		const infos = editors.map((e) => e.getLongTitle()).join("\n");
+		editors.forEach((e) => {
+			if (/table[.]sql/.test(e.getTitle())) {
+				e.destroy();
+			}
+		});
+		// console.log(infos);
 	});
 
 	user.defun("atom-workspace", "user:open-your-siteinit.js", function() {

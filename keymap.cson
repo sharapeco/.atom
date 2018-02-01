@@ -80,7 +80,7 @@
     # C-c prefix commands
     'ctrl-c ctrl-f': 'atom-commander:toggle-focus'
     # C-x prefix commands
-    'ctrl-x 5': 'pane:split-right'
+    'ctrl-x 5': 'pane:split-right-and-copy-active-item'
 
 'atom-text-editor.autocomplete-active':
     'escape': 'autocomplete-plus:cancel'
