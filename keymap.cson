@@ -66,12 +66,12 @@
     # C-x prefix commands
     'ctrl-x 5': 'pane:split-right-and-copy-active-item'
 
-'.platform-win32 .atom-text-editor:not([mini])':
+'.platform-win32 atom-text-editor:not([mini])':
     'ctrl-alt-/': 'editor:auto-indent'
     'alt-shift-5': 'find-and-replace:show'
     'alt-g': 'go-to-line:toggle'
 
-'.platform-darwin .atom-text-editor:not([mini])':
+'.platform-darwin atom-text-editor:not([mini])':
     'ctrl-cmd-/': 'editor:auto-indent'
     'cmd-shift-5': 'find-and-replace:show'
     'cmd-g': 'go-to-line:toggle'
