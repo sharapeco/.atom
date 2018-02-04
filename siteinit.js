@@ -43,7 +43,7 @@ function init() {
 		render () {
 			let itemNodes = this.items.map((item) => {
 				return (
-					<div className={"buffer-list-item " + (item.selected ? "selected" : "")}>
+					<div className={"buffer-list-item" + (item.selected ? " selected" : "") + (item.modified ? " modified" : "")}>
 						<div className="buffer-list-marker">
 							<span className={"save-mark icon icon-move-down text-info " + (item.saveMark ? "" : "hide")}></span>
 							<span className={"delete-mark icon icon-remove-close text-warning " + (item.deleteMark ? "" : "hide")}></span>
@@ -113,6 +113,7 @@ function init() {
 					saveMark: false,
 					name: editor.getTitle(),
 					path: (editor.getPath() || "").replace(/^\/Users\/[^/]+\//, "~/"),
+					modified: editor.isModified(),
 					editor: editor
 				}
 			})
