@@ -24,8 +24,13 @@
 }
 
 .buffer-list-content {
-    flex: 1;
+    flex: 1 1 auto;
     padding: .25em 0;
+    overflow: auto;
+}
+
+.buffer-list-legend {
+    flex: 0 0 auto;
 }
 
 .buffer-list-items {
@@ -36,6 +41,11 @@
 
 .buffer-list-item {
     display: table-row;
+    cursor: default;
+
+    &:hover {
+        background: @background-color-highlight;
+    }
 
     &.selected {
         color: @text-color-highlight;
@@ -101,6 +111,11 @@
 
 // ================================================================
 // style the background and foreground colors on the atom-text-editor-element itself
+html,
+atom-workspace {
+    font-family: @ui-font;
+}
+
 atom-text-editor {
     padding: 5px 0;
 

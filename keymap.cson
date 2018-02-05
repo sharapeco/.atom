@@ -19,6 +19,13 @@
     'x': 'buffer-list:execute'
     'o': 'buffer-list:open-selected'
     'enter': 'buffer-list:open-selected'
+    'ctrl-v': 'core:page-down'
+
+':not(.platform-darwin) .buffer-list':
+    'alt-v': 'core:page-up'
+
+'.platform-darwin .buffer-list':
+    'cmd-v': 'core:page-up'
 
 'body':
     'alt-1': 'unset!'
@@ -39,6 +46,7 @@
     'ctrl-p': 'core:move-up'
     'ctrl-y': 'core:paste'
     # C-c prefix commands
+    'ctrl-c ctrl-f': 'atom-commander:toggle-focus'
     # C-x prefix commands
     'ctrl-x ctrl-p': 'user:open-your-project-file'
     # Disable quit command
@@ -66,27 +74,29 @@
 
 'atom-text-editor:not([mini])':
     'ctrl-i': 'editor:indent'
+    'ctrl-v': 'core:page-down'
     'ctrl-/': 'core:undo'
     'ctrl-\\': 'core:redo'
     'ctrl-_': 'core:redo'
     'ctrl-shift-i': 'window:toggle-dev-tools'
     # C-c prefix commands
     'ctrl-c g': 'go-to-line:toggle'
-    'ctrl-c ctrl-f': 'atom-commander:toggle-focus'
     'ctrl-c ctrl-y': 'clipboard-plus:toggle'
     # C-x prefix commands
     'ctrl-x 5': 'pane:split-right-and-copy-active-item'
     'ctrl-x ctrl-b': 'user:buffer-list'
 
-'.platform-win32 atom-text-editor:not([mini])':
+':not(.platform-darwin) atom-text-editor:not([mini])':
     'ctrl-alt-/': 'editor:auto-indent'
     'alt-shift-5': 'find-and-replace:show'
     'alt-g': 'go-to-line:toggle'
+    'alt-v': 'core:page-up'
 
 '.platform-darwin atom-text-editor:not([mini])':
     'ctrl-cmd-/': 'editor:auto-indent'
     'cmd-shift-5': 'find-and-replace:show'
     'cmd-g': 'go-to-line:toggle'
+    'cmd-v': 'core:page-up'
 
 'atom-text-editor.autocomplete-active':
     'escape': 'autocomplete-plus:cancel'
@@ -190,7 +200,7 @@
     'shift-r': 'tree-view:rename'
     'shift-q': 'tree-view:toggle'
 
-'.platform-win32 .tree-view':
+':not(.platform-darwin) .tree-view':
     'alt-v': 'core:page-up'
 
 '.platform-darwin .tree-view':
@@ -225,7 +235,7 @@
     'ctrl-t': 'atom-commander:select-invert'
     'ctrl-v': 'atom-commander:page-down'
 
-'.platform-win32 .atom-commander-container-view':
+':not(.platform-darwin) .atom-commander-container-view':
     'alt-d': 'atom-commander:compare-files'
     'alt-v': 'atom-commander:page-up'
 

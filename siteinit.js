@@ -8,7 +8,7 @@ function init() {
 
 	const etch = require("etch")
 
-	class TestView {
+	class BufferListView {
 
 		// ----------------------------------------------------------------
 		// Lifecycle methods:
@@ -25,11 +25,13 @@ function init() {
 
 			etch.initialize(this)
 
-			let CompositeDisposable = require("atom").CompositeDisposable
+			const {Disposable, CompositeDisposable} = require("atom")
 			this.disposables = new CompositeDisposable()
 			this.disposables.add(atom.commands.add(this.element, {
 				"core:move-up": () => { this.selectPrevious() },
 				"core:move-down": () => { this.selectNext() },
+				"core:page-up": () => { this.pageUp() },
+				"core:page-down": () => { this.pageDown() },
 				"core:move-to-top": () => { this.selectFirst() },
 				"core:move-to-bottom": () => { this.selectLast() },
 				"buffer-list:mark-as-save": () => { this.markAsSave() },
@@ -38,12 +40,21 @@ function init() {
 				"buffer-list:execute": () => { this.execute() },
 				"buffer-list:open-selected": () => { this.openItem() }
 			}))
+
+			const clickHandler = (event) => {
+				const target = event.target.closest(".buffer-list-item")
+				if (target) {
+					this.setCursor(target.index)
+				}
+			}
+			this.element.addEventListener("click", clickHandler)
+			this.disposables.add(new Disposable(() => this.element.removeEventListener("click", clickHandler)))
 		}
 
 		render () {
-			let itemNodes = this.items.map((item) => {
+			let itemNodes = this.items.map((item, index) => {
 				return (
-					<div className={"buffer-list-item" + (item.selected ? " selected" : "") + (item.modified ? " modified" : "")}>
+					<div className={"buffer-list-item" + (item.selected ? " selected" : "") + (item.modified ? " modified" : "")} index={index}>
 						<div className="buffer-list-marker">
 							<span className={"save-mark icon icon-move-down text-info " + (item.saveMark ? "" : "hide")}></span>
 							<span className={"delete-mark icon icon-remove-close text-warning " + (item.deleteMark ? "" : "hide")}></span>
@@ -117,6 +128,16 @@ function init() {
 					editor: editor
 				}
 			})
+			this.items.sort((x, y) => {
+				if (x.path === y.path) {
+					if (x.path === "") {
+						if (x.name === y.name) return 0
+						return (x.name < y.name) ? -1 : 1
+					}
+					return 0
+				}
+				return (x.path < y.path) ? -1 : 1
+			})
 			this.update().done(() => {
 				this.setCursor(0)
 			})
@@ -159,6 +180,32 @@ function init() {
 
 		selectLast () {
 			this.setCursor(this.items.length - 1)
+		}
+
+		getBoxHeight (el) {
+			const style = document.defaultView.getComputedStyle(el, null)
+			return el.clientHeight + parseInt(style.paddingTop, 10) + parseInt(style.paddingBottom, 10)
+		}
+
+		pageUp () {
+			const contentEl = this.element.querySelector(".buffer-list-content")
+			const contentHeight = this.getBoxHeight(contentEl)
+			const itemHeight = contentEl.querySelector(".buffer-list-item").clientHeight
+			const linesPerWindow = ~~(contentHeight / itemHeight)
+
+			contentEl.scrollTop = Math.max(contentEl.scrollTop - contentHeight, 0)
+			this.setCursor(Math.max(this.cursor - linesPerWindow, 0))
+		}
+
+		pageDown () {
+			const contentEl = this.element.querySelector(".buffer-list-content")
+			const contentHeight = this.getBoxHeight(contentEl)
+			const scrollHeight = Math.max(contentEl.querySelector(".buffer-list-items").clientHeight - contentEl.clientHeight, 0)
+			const itemHeight = contentEl.querySelector(".buffer-list-item").clientHeight
+			const linesPerWindow = ~~(contentHeight / itemHeight)
+
+			contentEl.scrollTop = Math.min(contentEl.scrollTop + contentHeight, scrollHeight)
+			this.setCursor(Math.min(this.cursor + linesPerWindow, this.items.length - 1))
 		}
 
 		markAsSave () {
@@ -233,7 +280,7 @@ function init() {
 	atom.workspace.addOpener((URI) => {
 		if (URI === BufferListURI) {
 			if (!bufferListView || bufferListView.destroyed) {
-				bufferListView = new TestView({URI: BufferListURI});
+				bufferListView = new BufferListView({URI: BufferListURI});
 			}
 			return bufferListView;
 		}
