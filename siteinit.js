@@ -159,7 +159,33 @@ function init() {
 			this.items[point].selected = true
 			this.cursor = point
 
-			this.update()
+			this.update().done(() => this.fixCursorPosition(this.cursor))
+		}
+
+		fixCursorPosition (point) {
+			const contentEl = this.element.querySelector(".buffer-list-content")
+			const style = document.defaultView.getComputedStyle(contentEl, null)
+			const paddingTop = parseInt(style.paddingTop, 10)
+			const window = {
+				top: contentEl.scrollTop,
+				bottom: contentEl.scrollTop + contentEl.clientHeight,
+			}
+			const itemHeight = contentEl.querySelector(".buffer-list-item").clientHeight
+			const item = {
+				top: point * itemHeight + paddingTop,
+				bottom: (point + 1) * itemHeight + paddingTop,
+			}
+			if (item.bottom > window.bottom) {
+				let offset = item.bottom - window.bottom
+				window.top += offset
+				window.bottom += offset
+			}
+			if (item.top < window.top) {
+				let offset = item.top - window.top
+				window.top += offset
+				// window.bottom -= offset
+			}
+			contentEl.scrollTop = window.top
 		}
 
 		selectPrevious () {
@@ -200,7 +226,8 @@ function init() {
 		pageDown () {
 			const contentEl = this.element.querySelector(".buffer-list-content")
 			const contentHeight = this.getBoxHeight(contentEl)
-			const scrollHeight = Math.max(contentEl.querySelector(".buffer-list-items").clientHeight - contentEl.clientHeight, 0)
+			const verticalPadding = contentHeight - contentEl.clientHeight
+			const scrollHeight = Math.max(contentEl.querySelector(".buffer-list-items").clientHeight - contentEl.clientHeight + verticalPadding, 0)
 			const itemHeight = contentEl.querySelector(".buffer-list-item").clientHeight
 			const linesPerWindow = ~~(contentHeight / itemHeight)
 
