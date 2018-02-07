@@ -5,6 +5,7 @@ My Atom editor configuration files
 * advanced-open-file (Osmose)
 * atom-commander (morassman)
 * atomic-emacs (avendael)
+* buffer-list (sharapeco)
 * clipboard-plus (aki77)
 * disable-keybindings (aki77)
 * editorconfig (sindresorhus)

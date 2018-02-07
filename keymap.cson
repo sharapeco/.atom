@@ -9,24 +9,6 @@
 # Debugging Guide for more information:
 # * http://flight-manual.atom.io/hacking-atom/sections/debugging/#check-the-keybindings
 
-## Buffer list
-'.buffer-list':
-    'j': 'core:move-down'
-    'k': 'core:move-up'
-    'd': 'buffer-list:mark-as-delete'
-    's': 'buffer-list:mark-as-save'
-    'u': 'buffer-list:unmark'
-    'x': 'buffer-list:execute'
-    'o': 'buffer-list:open-selected'
-    'enter': 'buffer-list:open-selected'
-    'ctrl-v': 'core:page-down'
-
-':not(.platform-darwin) .buffer-list':
-    'alt-v': 'core:page-up'
-
-'.platform-darwin .buffer-list':
-    'cmd-v': 'core:page-up'
-
 'body':
     'alt-1': 'unset!'
     'alt-2': 'unset!'
@@ -48,6 +30,7 @@
     # C-c prefix commands
     'ctrl-c ctrl-f': 'atom-commander:toggle-focus'
     # C-x prefix commands
+    'ctrl-x ctrl-b': 'buffer-list:show'
     'ctrl-x ctrl-p': 'user:open-your-project-file'
     # Disable quit command
     'ctrl-x ctrl-c': 'unset!'
@@ -84,7 +67,6 @@
     'ctrl-c ctrl-y': 'clipboard-plus:toggle'
     # C-x prefix commands
     'ctrl-x 5': 'pane:split-right-and-copy-active-item'
-    'ctrl-x ctrl-b': 'user:buffer-list'
 
 ':not(.platform-darwin) atom-text-editor:not([mini])':
     'ctrl-alt-/': 'editor:auto-indent'
