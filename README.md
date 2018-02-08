@@ -11,5 +11,6 @@ My Atom editor configuration files
 * editorconfig (sindresorhus)
 * filter-text (sharapeco)
 * incremental-search (gangstead)
+* japan-util (aki77)
 * platformio-ide-terminal (platformio)
 * project-manager (danielbrodin)
