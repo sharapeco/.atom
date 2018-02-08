@@ -6,8 +6,9 @@ storage
 .node-gyp
 .npm
 packages
-/siteinit-cache
-config.cson
-projects.cson
-/package-lock.json
+/atom-commander.json
+/config.cson
 /node_modules
+/package-lock.json
+/projects.cson
+/siteinit-cache
