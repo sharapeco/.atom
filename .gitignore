@@ -7,7 +7,7 @@ storage
 .npm
 packages
 /siteinit-cache
-config.cson
-projects.cson
-/package-lock.json
-/node_modules
+/config.cson
+/projects.cson
+/atom-commander.json
+node_modules
