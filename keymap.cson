@@ -210,6 +210,8 @@
     'ctrl-i': 'atom-commander:focus-other-view'
 
 '.atom-commander-container-view':
+    '/': 'atom-commander:go-root'
+    'shift-x': 'atom-commander:open-with-system'
     'ctrl-a': 'atom-commander:select-files'
     'ctrl-d': 'atom-commander:compare-files'
     'ctrl-g': 'atom-commander:select-none'
