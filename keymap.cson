@@ -58,6 +58,7 @@
 'atom-text-editor:not([mini])':
     'ctrl-i': 'editor:indent'
     'ctrl-v': 'core:page-down'
+    'ctrl-z': 'core:page-up'
     'ctrl-/': 'core:undo'
     'ctrl-\\': 'core:redo'
     'ctrl-_': 'core:redo'
