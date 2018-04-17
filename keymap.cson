@@ -88,6 +88,7 @@
     'alt-d': 'atom-commander:compare-files'
     'alt-v': 'atom-commander:page-up'
 
+## ----------------------------------------------------------------
 ## Atomic Emacs
 '.platform-darwin atom-workspace':
     'alt-x': 'unset!'
@@ -144,7 +145,6 @@
     'alt-v': 'unset!'
     'cmd-v': 'atomic-emacs:scroll-down'
 
-
 ## ================================================================
 ## Language Modes
 
@@ -168,6 +168,18 @@
     'f1': 'user:open-php-manual'
     'ctrl-x ctrl-h': 'user:open-php-manual'
 
+## ================================================================
+## Fuzzy Finder
+
+'.fuzzy-finder':
+    'tab': 'core:confirm'
+
+## ================================================================
+## Incremental Search
+'.workspace .isearch .editor':
+    'ctrl-s': 'incremental-search:forward'
+    'ctrl-r': 'incremental-search:backward'
+    'ctrl-w' : 'incremental-search:slurp'
 
 ## ================================================================
 ## Tree View
@@ -188,14 +200,6 @@
 
 '.platform-darwin .tree-view':
     'alt-v': 'core:page-up'
-
-
-## ================================================================
-## Incremental Search
-'.workspace .isearch .editor':
-    'ctrl-s': 'incremental-search:forward'
-    'ctrl-r': 'incremental-search:backward'
-    'ctrl-w' : 'incremental-search:slurp'
 
 ## ================================================================
 ## Atom Commander
