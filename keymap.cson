@@ -85,9 +85,6 @@
     'escape': 'autocomplete-plus:cancel'
     'ctrl-g': 'autocomplete-plus:cancel'
 
-    'alt-d': 'atom-commander:compare-files'
-    'alt-v': 'atom-commander:page-up'
-
 ## ----------------------------------------------------------------
 ## Atomic Emacs
 '.platform-darwin atom-workspace':
