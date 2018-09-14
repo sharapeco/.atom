@@ -179,6 +179,12 @@
     'ctrl-w' : 'incremental-search:slurp'
 
 ## ================================================================
+## Buffer List
+
+'.buffer-list':
+    'q': 'core:close'
+
+## ================================================================
 ## Tree View
 '.tree-view':
     'ctrl-h': 'tree-view:collapse-directory'
